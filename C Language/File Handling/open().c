@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+# define ERR_FILE_NOT_EXIST -1
+# define SUCCESS 0
+
 int main()
 {
     FILE *fptr;
@@ -12,14 +15,14 @@ int main()
     if (fptr == NULL)
     {
         printf("Error opening file\n");
-        exit(EXIT_FAILURE);
+        return ERR_FILE_NOT_EXIST;
     }
 
     fprintf(fptr, "%s", data);
 
     fclose(fptr);
 
-    printf("Data written to demo.txt\n");
-
-    return 0;
+    printf("Data written to demo.txt file\n");
+    
+    return SUCCESS;
 }
